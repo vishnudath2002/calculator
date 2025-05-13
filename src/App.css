@@ -1,0 +1,147 @@
+:root {
+  --primary: #8747e6;
+  --primary-light: #a674f0;
+  --secondary: #64dcf0;
+  --dark: #1e1e2c;
+  --dark-light: #2d2d44;
+  --light: #f8f9fa;
+  --accent: #ff7979;
+  --text: #333;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  background-color: var(--light);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 1px 8px rgba(0, 0, 0, 0.05),
+    0 20px 40px var(--shadow);
+}
+
+.display {
+  padding: 32px 24px;
+  text-align: right;
+  background-color: var(--dark);
+  color: var(--light);
+  position: relative;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.result {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+  min-height: 24px;
+}
+
+.current-calc {
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--dark-light);
+  gap: 1px;
+  padding: 1px;
+}
+
+.button {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: var(--light);
+  font-size: 22px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease-out;
+}
+
+.button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0s;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.operator {
+  background-color: var(--primary);
+  font-weight: 500;
+}
+
+.operator:hover {
+  background-color: var(--primary-light);
+}
+
+.equals {
+  background-color: var(--secondary);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.equals:hover {
+  background-color: #7ae5f5;
+}
+
+.clear {
+  background-color: var(--accent);
+  grid-column: span 2;
+}
+
+.clear:hover {
+  background-color: #ff9090;
+}
+
+.digit-0 {
+  grid-column: span 2;
+}
